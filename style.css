@@ -1,0 +1,589 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700&display=swap');
+
+/* #e8c464
+
+/*---------------------------------------- STYLE GENERAUX --------------------------------------*/
+* {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+button {
+    border: gray 1px solid;
+    padding: 0.2em 0.5em 0.2em 0.5em;
+    background: transparent;
+    border-radius: 2px;
+    font-size:0.8em;
+    font-family:'Montserrat', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+
+li {
+    list-style-type: none;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+input {
+    height: 30px;
+    width: 400px;
+    margin: 1em 1em 2em 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #eeeeee;
+    display: block;
+}
+
+input[type="submit"]{
+    height: 40px;
+    background-color: transparent;
+    border: solid 1px #e8c464;
+    color: #e8c464;
+    font-weight: bolder;
+}
+
+input[type="submit"]:hover{
+    background-color:#e8c464;
+    color: white;
+    transition-duration: 0.3s;
+}
+
+.title{
+    margin-top: 1em;
+}
+
+/* Header */
+
+header {
+    font-size: 1em;
+    background-color: #eeeeee;
+    box-shadow: 0 5px 5px #dddddd;
+    padding: 1em 1em 1em 1em;
+}
+
+.container-header {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-menu li{
+    list-style-type: none;
+    margin-left: 1em;
+}
+
+.container-menu a:hover{
+    color: #e8c464;
+    transition: 0.3s;
+}
+
+h1 a:hover{
+    color: #e8c464;
+    transition: 0.3s;
+}
+
+
+/* Footer */
+
+footer {
+    margin-top: 2em;
+    background: #C2C2C2;
+    color: gray;
+    font-size: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+"coordonnee nav auteurs"
+"bas bas bas";
+}
+
+footer div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding:0.5em 0 0.5em 0;
+}
+
+footer li {
+    margin: 0.5em 0 0.5em 0;
+}
+
+.footer-coordonnee {
+    grid-area: coordonnee;
+}
+
+.footer-nav {
+    grid-area: nav;
+}
+
+.footer-nav nav{
+    display: flex;
+    flex-direction: column;
+    text-decoration: underline;
+}
+
+.footer-nav nav a{
+    color : gray;
+}
+
+.footer-auteurs {
+    grid-area: auteurs;
+}
+
+.footer-bas{
+    grid-area: bas;
+    background: #4D4D4D;
+    padding: 0.2em 0 0.2em 0;
+    color: #e8c464;
+}
+
+/* --------------------------------------------PAGE ARTICLE / ARTICLE-ADMIN-------------------------------------------*/
+
+.big-grid {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+/* Style titre */
+.title {
+    font-size: 2em;
+    font-weight: lighter;
+    text-align: center;
+    padding-bottom: 1em;
+}
+/* Style boutton ajouter article */
+
+.container-btn-add {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+
+button.btn-add{
+    font-size: 1em;
+    padding: 0.4em 2em 0.4em 2em;
+    border: solid 1px #6c584c;
+}
+
+button.btn-add a{
+    color: #6c584c;
+}
+
+button.btn-add:hover{
+    background-color: #6c584c;
+    transition: 0.2s;
+}
+
+button.btn-add:hover a{
+    color: white;
+    transition: 0.2s;
+}
+
+/* Style Tris */
+
+.container-tris{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 1em 0 1em;
+    padding-top: 1em;
+    border-top: solid #e8c464 1px;
+}
+
+.container-tris button{
+    margin-left: 1em;
+    border: #e8c464 1px solid;
+    padding: 0.4em 0.8em 0.4em 0.8em;
+    border-radius: 2px;
+}
+
+.container-tris button:hover{
+    background: #ffe8a9;
+    transition-duration: 0.5s;
+}
+
+.nav-tri {
+    display: flex;
+    align-items: baseline;
+}
+
+.nav-categorie {
+    display: flex;
+    align-items: baseline;
+}
+
+
+button.active {
+    background-color: #e8c464;
+}
+
+/* Style grille articles */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, auto));
+    grid-template-rows: auto;
+}
+
+.grid-item {
+    margin: 2em 0.5em 0.5em 0.5em;
+    padding: 1em;
+}
+
+.img-wrapper {
+    width: 100%;
+    /* A compléter pour afficher le masque comme demandé */
+    position: relative;
+}
+
+.btn-hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ddd;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    padding: 3em;
+    opacity: 0;
+    transition: opacity 0.25s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-wrapper:hover .btn-hover {
+    opacity: 1;
+}
+
+.btn-hover button {
+    font-size: 100%;
+    height: 10%;
+    padding: 0.4em 2em 0.4em 2em;
+    font-family: 'Montserrat', sans-serif;
+    background-color: transparent;
+    border: solid 1px #e8c464;
+    color: #e8c464;
+}
+
+.btn-hover button:hover{
+    background-color: #e8c464;
+    color: white;
+    transition: 0.3s;
+}
+
+.btn-hover button.btn-suppr{
+    border: solid 2px #E06060;
+    color: #E06060;
+    font-weight: bolder;
+}
+
+.btn-hover button.btn-suppr:hover{
+    background-color: #E06060;
+    color: white;
+    transition: 0.3s;
+}
+
+.article-prix {
+    color: #e8c464;
+    margin-top: 0;
+    font-size: 1.2em;
+}
+
+.article-nom {
+    margin-bottom: 0;
+    color: gray;
+    text-transform: uppercase;
+}
+
+.hidden{
+    display: none;
+}
+
+
+/* Style boutton Admin */
+
+.btn-admin{
+    position: absolute;
+    right: 1em;
+    font-size: 1em;
+    padding: 0.4em 2em 0.4em 2em;
+    border: solid 1px #6c584c;
+}
+
+.btn-admin:hover{
+    background: #6c584c ;
+    transition-duration: 0.2s;
+}
+
+.btn-admin a {
+    color: #6c584c;
+}
+
+.btn-admin:hover a{
+    color: white;
+    transition-duration: 0.2s;
+}
+
+
+/*----------------------------------------------------------PAGE INDEX-------------------------------------*/
+
+.hello {
+    text-align: center;
+    font-size: 2em;
+    margin: 1em 1em 1em 1em;
+    padding-bottom: 1em;
+    border-bottom: solid #e8c464 1px;
+}
+.hello span{
+    color:#e8c464;
+}
+
+.container-about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3em 0 3em 0;
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-basis: 50%;
+}
+
+.text-about p{
+    text-justify: inter-word;
+    margin: 1em 0em 1em 0em;
+    font-size: 1em;
+}
+
+.text-about span{
+    color: #e8c464;
+    font-size: 1.2em;
+}
+
+
+.splide__slide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-top: solid 1px gray;
+    border-bottom: solid 1px gray;
+}
+
+.titre-slider{
+    margin-left: 2em;
+    margin-top: 2em;
+}
+
+.title-slide{
+    font-weight: lighter;
+}
+
+.title-slide span{
+    padding-left: 1em;
+    color: #e8c464;
+}
+
+.splide__slide .img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.width {
+    height:30vh
+}
+
+/*--------------------------------------------------PAGE CONNEXION-----------------------------------------*/
+
+.form-fullpage {
+    margin: 2em auto 2em auto;
+    width: 50%;
+}
+
+fieldset{
+    border: none;
+    border-bottom: solid #e8c464 1px;
+    border-top: solid #e8c464 1px;
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-register{
+    text-align: center;
+    margin-top: 2em;
+}
+
+.btn-register a{
+    text-align: center;
+    color: #e8c464;
+    text-decoration: underline;
+}
+
+.btn-register a:hover{
+    font-weight: bolder;
+    transition-duration: 0.2s;
+}
+
+#register-form + div{
+
+}
+.error{
+    color: #E06060;
+}
+
+/*--------------------------------------------------PAGE PANIER-----------------------------------------*/
+.table {
+    display: block;
+    margin-left: 3em;
+    margin-right: 3em;
+}
+
+td {
+    width: 5%;
+    height: 3%;
+    border-bottom: solid black 1px;
+    padding-bottom: 1em;
+}
+
+
+.ttitle{
+    font-size: large;
+    border-bottom: solid #e8c464 1px;
+    padding-bottom: 1em;
+}
+
+tbody{
+    font-size: 1.2em;
+}
+
+.btn-commande{
+    display: block;
+    text-align: center;
+    width: 70%;
+    font-size: 1.3em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-radius: 5px;
+
+}
+
+button.btn-commande{
+    border: solid black 1px;
+}
+
+button.btn-commande:hover{
+    background-color: rgba(189, 195, 199, 0.5);
+    border: solid rgba(189, 195, 199, 0.5) 1px;
+    transition: 0.3s;
+}
+
+.table-qte{
+    text-align: center;
+}
+
+#quantite{
+    width: 100px;
+    margin: auto;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.qte{
+    margin: 35px;
+}
+
+.modif-qte{
+    margin: 10px;
+    height: 2em;
+    border-radius: 10px;
+    width: 35%;
+}
+
+.modif-qte:hover{
+    background-color: rgba(189, 195, 199, 0.5);
+    transition: 0.3s;
+    border: solid rgba(189, 195, 199, 0.5) 1px;
+}
+
+.form-modif-qte{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+
+.valid-modif{
+    border-radius: 5px;
+    height: 2.3em;
+    width: 40%;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    border: solid forestgreen 1px;
+}
+
+.valid-modif:hover{
+    background-color: forestgreen;
+    color: white;
+}
+
+.table-article{
+    text-align: center;
+}
+
+.form-prix{
+    text-align: center;
+}
+
+.form-suppr{
+    text-align: center;
+}
+
+.btn-suppr-panier{
+    width: 60%;
+    height: 2.5em;
+    border: solid #E06060 2px;
+    color: #E06060;
+    border-radius: 5px;
+}
+
+.btn-suppr-panier:hover{
+    background-color: #E06060;
+    color: white;
+    transition: 0.3s;
+}
